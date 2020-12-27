@@ -1,9 +1,7 @@
 {
-  "name": "csv-proccessor-ui",
-  "version": "1.0.0",
-  "repository": "https://github.com/michaelhaydendeveloper/csv-proccessor-ui.git",
-  "author": "Michael Hayden",
-  "license": "MIT",
+  "name": "csvprocessorui",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
