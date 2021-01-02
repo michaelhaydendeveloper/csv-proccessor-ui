@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import AbstractionExample from './AbstractionExample';
+import HeaderModule from './HeaderModule/HeaderModule';
 
 export default function App() {
   const { width } = useWindowDimensions();
@@ -22,6 +23,7 @@ export default function App() {
       />
       <View style={[styles.root, { backgroundColor }]}>
         <View style={[styles.content, width > 900 && styles.contenBig]}>
+          <HeaderModule />
           <Text style={styles.title}>Are you ready for React Native Web?</Text>
           <Text style={styles.paragraph}>
             It will save you a lot of time and you can almost always share more
