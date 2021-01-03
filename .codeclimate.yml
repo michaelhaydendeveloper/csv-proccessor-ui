@@ -1,6 +1,8 @@
 version: "2"
 exclude_patterns:
 - "dist/"
+- "public/"
+- "coverage/"
 - "**/node_modules/"
 - "**/e2e/"
 - "**/__tests__/"
