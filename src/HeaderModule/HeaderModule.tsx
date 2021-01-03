@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet } from 'react-native';
+import SplashScreenModule from "../SplashScreenModule/SplashScreenModule";
 
 export default function HeaderModule() {
   return (
     <View style={styles.container}>
-      <Text>MOBILE :: HEADER</Text>
+      {/*<Text>MOBILE :: HEADER</Text>*/}
+      <SplashScreenModule />
     </View>
   );
 }

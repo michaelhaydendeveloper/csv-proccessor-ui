@@ -14,6 +14,39 @@ import HeaderModule from './HeaderModule/HeaderModule';
 export default function App() {
   const { width } = useWindowDimensions();
   const [backgroundColor, setState] = useState<string>('#1275e6');
+  const buttonConfigs = [
+    {
+      label: 'Change to orange',
+      backgroundColor: '#fabe0a',
+    },
+    {
+      label: 'Change to green',
+      backgroundColor: '#31bd52',
+    },
+    {
+      label: 'Change to red',
+      backgroundColor: '#cf4c4c',
+    },
+  ];
+
+  const generateButtons = () => {
+    const buttons = [];
+    for(let i = 0; i < buttonConfigs.length; i++) {
+      const label = buttonConfigs[i].label;
+      const backgroundColor = buttonConfigs[i].backgroundColor;
+      buttons.push(
+          <Button
+              key={`button-${backgroundColor}`}
+              label={label}
+              backgroundColor={backgroundColor}
+              onPress={() => setState(backgroundColor)}
+          />
+      );
+    }
+    return buttons;
+  };
+
+
   return (
     <>
       <StatusBar
@@ -38,21 +71,7 @@ export default function App() {
           <Text style={styles.paragraph}>
             Let's try add some some different background colors.
           </Text>
-          <Button
-            label="Change to orange"
-            backgroundColor="#fabe0a"
-            onPress={() => setState('#fabe0a')}
-          />
-          <Button
-            label="Change to green"
-            backgroundColor="#31bd52"
-            onPress={() => setState('#31bd52')}
-          />
-          <Button
-            label="Change to red"
-            backgroundColor="#cf4c4c"
-            onPress={() => setState('#cf4c4c')}
-          />
+          {generateButtons()}
         </View>
       </View>
     </>
