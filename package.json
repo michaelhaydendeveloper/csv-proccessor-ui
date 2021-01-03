@@ -7,6 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
+    "test:all": "yarn run test:cover && yarn run test:integration",
+    "test:cover": "yarn run jest --coverage",
+    "test:debug": "node --inspect node_modules/.bin/jest --runInBand",
     "lint": "eslint .",
     "web:build": "react-app-rewired build",
     "web:test": "react-app-rewired test",
@@ -17,6 +20,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-native": "0.63.4",
+    "react-native-localize": "^2.0.1",
     "react-native-web": "^0.14.10",
     "react-scripts": "4.0.1"
   },
