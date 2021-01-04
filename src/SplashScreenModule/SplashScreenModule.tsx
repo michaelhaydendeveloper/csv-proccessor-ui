@@ -1,6 +1,5 @@
 import {Component} from "react";
 import {
-    Alert,
     Text,
     TouchableHighlight,
     View,
@@ -20,7 +19,7 @@ class SplashScreenModule extends Component<any, any> {
     }
 
     onRequestCloseHandler = () => {
-        Alert.alert('Modal Closed');
+        this.setState({ modalVisible: false });
     }
 
     render() {
