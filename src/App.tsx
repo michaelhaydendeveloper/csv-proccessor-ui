@@ -8,44 +8,13 @@ import {
   StatusBar,
 } from 'react-native';
 
-import AbstractionExample from './AbstractionExample';
 import HeaderModule from './HeaderModule/HeaderModule';
+import MainModule from "./MainModule/MainModule";
+import FooterModule from "./FooterModule/FooterModule";
 
 export default function App() {
   const { width } = useWindowDimensions();
   const [backgroundColor, setState] = useState<string>('#1275e6');
-  const buttonConfigs = [
-    {
-      label: 'Change to orange',
-      backgroundColor: '#fabe0a',
-    },
-    {
-      label: 'Change to green',
-      backgroundColor: '#31bd52',
-    },
-    {
-      label: 'Change to red',
-      backgroundColor: '#cf4c4c',
-    },
-  ];
-
-  const generateButtons = () => {
-    const buttons = [];
-    for(let i = 0; i < buttonConfigs.length; i++) {
-      const label = buttonConfigs[i].label;
-      const backgroundColor = buttonConfigs[i].backgroundColor;
-      buttons.push(
-          <Button
-              key={`button-${backgroundColor}`}
-              label={label}
-              backgroundColor={backgroundColor}
-              onPress={() => setState(backgroundColor)}
-          />
-      );
-    }
-    return buttons;
-  };
-
 
   return (
     <>
@@ -57,28 +26,48 @@ export default function App() {
       <View style={[styles.root, { backgroundColor }]}>
         <View style={[styles.content, width > 900 && styles.contenBig]}>
           <HeaderModule />
-          <Text style={styles.title}>Are you ready for React Native Web?</Text>
-          <Text style={styles.paragraph}>
-            It will save you a lot of time and you can almost always share more
-            than 90% of your code base.
-          </Text>
-          <Text style={styles.paragraph}>
-            You can always make an abstraction for the web version. Like the
-            component below.
-          </Text>
-          <View style={styles.enter} />
-          <AbstractionExample />
-          <Text style={styles.paragraph}>
-            Let's try add some some different background colors.
-          </Text>
-          {generateButtons()}
+          <MainModule />
+          {generateButtons(setState)}
+          <FooterModule />
         </View>
       </View>
     </>
   );
 }
 
-function Button({
+const buttonConfigs = [
+  {
+    label: 'Change to orange',
+    backgroundColor: '#fabe0a',
+  },
+  {
+    label: 'Change to green',
+    backgroundColor: '#31bd52',
+  },
+  {
+    label: 'Change to red',
+    backgroundColor: '#cf4c4c',
+  },
+];
+
+export function generateButtons(onPressHandler:Function){
+  const buttons = [];
+  for(let i = 0; i < buttonConfigs.length; i++) {
+    const label = buttonConfigs[i].label;
+    const backgroundColor = buttonConfigs[i].backgroundColor;
+    buttons.push(
+        <Button
+            key={`button-${backgroundColor}`}
+            label={label}
+            backgroundColor={backgroundColor}
+            onPress={() => onPressHandler(backgroundColor)}
+        />
+    );
+  }
+  return <View testID='generated-buttons'>{buttons}</View>;
+};
+
+export function Button({
   label,
   onPress,
   backgroundColor,

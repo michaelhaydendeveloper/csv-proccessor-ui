@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "test:all": "yarn run test:cover && yarn run test:integration",
-    "test:cover": "yarn run jest --coverage",
+    "test:cov": "yarn run jest --coverage",
     "test:debug": "node --inspect node_modules/.bin/jest --runInBand",
     "lint": "eslint .",
     "web:build": "react-app-rewired build",
@@ -17,6 +17,7 @@
     "web": "react-app-rewired start"
   },
   "dependencies": {
+    "enzyme": "^3.11.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-native": "0.63.4",
@@ -33,6 +34,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/react": "^17.0.0",
     "@types/react-native": "^0.63.42",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
     "babel-jest": "^25.1.0",
     "babel-plugin-import": "^1.13.3",
     "customize-cra": "^1.0.0",
